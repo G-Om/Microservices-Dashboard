@@ -1,19 +1,19 @@
 // DetailedView.js
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-// import React, { useState, useEffect } from 'react';
 import {ApiEndpoints} from './ApiEndpoints';
+import MicroserviceApi from '../api/MicroserviceApi';
 
 
 
-const microservicesCardData = 
+const data = 
   {
-    serviceName: "Microservice 1",
+    name: "Microservice 1",
     description: "100.80.111",
     version: "Active",
     environment: "xyz",
     uptime : "10.00",
-    dependentMicroservices : [
+    apiList : [
           { "id": 1, "API Name": "Alice", "Request Type": 25, "Path Variable":"Pune", "Body": "xyz", "Role":"abc" },
           { "id": 2, "API Name": "Bob", "Request Type": 30,"Path Variable":"Mumbai", "Body": "xyz", "Role":"abc" },
           { "id": 3, "API Name": "Charlie", "Request Type": 35,"Path Variable":"Delhi ", "Body": "xyz", "Role":"abc" }
@@ -23,24 +23,20 @@ const microservicesCardData =
 export const MicroserviceDetailedCardComponent = () => {
   const id = useParams().id;
   console.log(id)
- 
-  if (microservicesCardData == null) {
-    return <div>Item not found</div>;
-  }
+  // API Endpoint Calls
+  const [data, setData] = useState([]);
 
-  // API Endpoints
-  // const [data, setData] = useState([]);
-
-  // useEffect(() => {
-  //     // Simulate fetching data
-  //     const fetchData = async () => {
-  //         const response = await fetch('/path/to/your/data.json'); // Adjust the path as needed
-  //         const result = await response.json();
-  //         setData(result.data);
-  //     };
-
-  //     fetchData();
-  // }, []);
+   useEffect(() => {
+       // Simulate fetching data
+       MicroserviceApi.getService(id).then(
+        (response)=>{
+          setData(response.data)
+          console.log(response.data)
+        }
+       ).catch((e)=>{
+        console.log(e)
+       })
+   }, []);
 
 
   return (
@@ -50,17 +46,17 @@ export const MicroserviceDetailedCardComponent = () => {
       <div className='service-overview'>
         <h1>Service Overview</h1>
         <div className='service-overview-info'>
-          <p className='serviceName'>Service Name : {microservicesCardData.serviceName}</p>
-          <p className='description'>Description : {microservicesCardData.description}</p>
-          <p className='version'>Version : {microservicesCardData.version}</p>
-          <p className='environment'>Environment : {microservicesCardData.environment}</p>
-          <p className='uptime'>Uptime : {microservicesCardData.uptime}</p>
+          <p className='name'>Service Name : {data.name}</p>
+          <p className='description'>Description : {data.description}</p>
+          <p className='version'>Version : {data.version}</p>
+          <p className='environment'>Environment : {data.environment}</p>
+          <p className='uptime'>Uptime : {data.uptime}</p>
         </div>
       </div>
       <div className='Api-endpoints'>
         <h1>API Endpoints</h1>
          <div className='api-endpoints-info'>
-            <ApiEndpoints data={microservicesCardData.dependentMicroservices} />
+            <ApiEndpoints data={data.apiList} />
           </div>   
 
       </div>
