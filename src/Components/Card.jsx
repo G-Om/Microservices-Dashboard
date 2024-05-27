@@ -9,24 +9,14 @@ export const Card = (props) => {
     
     return(
         <div className="card" onClick={handleClick}>
-            <table  className="card-table">
-                <thead>
-                    <tr>
-                        <th>Title</th>
-                        <th>Port</th>
-                        <th>Status</th>
-                        <th>Link</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>{props.title}</td>
-                        <td>{props.portNumber}</td>
-                        <td>{props.status}</td>
-                        <td>{props.link}</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div className="microserviceCard">
+            <h1 className="microserviceCard-title">{props.title}</h1> 
+            <div className="microserviceCard-info">
+                <p>Port : {props.portNumber}</p> 
+                <p>Link : {props.status}</p>              
+                <p>Status : {props.link}</p>              
+            </div>       
+            </div>
         </div>
     );
 };
