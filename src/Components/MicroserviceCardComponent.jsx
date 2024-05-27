@@ -11,12 +11,12 @@ export const MicroserviceCardComponent = ( props ) => {
     <div className="microservicesCard-list">
       {props.data.map((item, index) => (
         <Card key={index}
-        className="microserviceCardComponent"
         id = {index}
         title = {item.title}
         portNumber = {item.portNumber}
         status = {item.status}
         link = {item.link}
+        className="microserviceCardComponent"
         ></Card>
       ))}
     </div>
