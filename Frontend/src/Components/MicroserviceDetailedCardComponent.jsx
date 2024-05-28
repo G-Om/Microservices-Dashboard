@@ -14,10 +14,11 @@ const data =
     environment: "xyz",
     uptime : "10.00",
     apiList : [
-          { "id": 1, "API Name": "Alice", "Request Type": 25, "Path Variable":"Pune", "Body": "xyz", "Role":"abc" },
-          { "id": 2, "API Name": "Bob", "Request Type": 30,"Path Variable":"Mumbai", "Body": "xyz", "Role":"abc" },
-          { "id": 3, "API Name": "Charlie", "Request Type": 35,"Path Variable":"Delhi ", "Body": "xyz", "Role":"abc" }
-    ],   
+          { "id": 1, "API Name": "Nirmal", "Request Type": 25, "Path Variable":"Pune", "Body": "Black book neet kar re", "Role":"Devops King" },
+          { "id": 2, "API Name": "Mayur", "Request Type": 30,"Path Variable":"Mumbai", "Body": "anime kam dekh", "Role":"All rounder" },
+          { "id": 3, "API Name": "Om", "Request Type": 35,"Path Variable":"Delhi ", "Body": "chinese ka paisa time management ke course me laga", "Role":"Backend Beast" }
+    ], 
+    dependencyArray : ["Product Management","Order Management","Cart Management","User Management"]  
   };
 
 export const MicroserviceDetailedCardComponent = () => {
@@ -45,23 +46,31 @@ export const MicroserviceDetailedCardComponent = () => {
       <div className='detailed-card'>
       <div className='service-overview'>
         <h1>Service Overview</h1>
-        <div className='service-overview-info'>
-          <p className='name'>Service Name : {data.name}</p>
-          <p className='description'>Description : {data.description}</p>
-          <p className='version'>Version : {data.version}</p>
-          <p className='environment'>Environment : {data.environment}</p>
-          <p className='uptime'>Uptime : {data.uptime}</p>
+
+        <div className='service-overview-info'>  
+
+          <p className='serviceName'>Service Name : {microservicesCardData.serviceName}</p>
+          <p className='description'>Description : {microservicesCardData.description}</p>
+          <p className='version'>Version : {microservicesCardData.version}</p>
+          <p className='environment'>Environment : {microservicesCardData.environment}</p>
+          <p className='uptime'>Uptime : {microservicesCardData.uptime}</p>
+    
         </div>
       </div>
       <div className='Api-endpoints'>
         <h1>API Endpoints</h1>
          <div className='api-endpoints-info'>
-            <ApiEndpoints data={data.apiList} />
+            <ApiEndpoints data={microservicesCardData.apiList} />
           </div>   
 
       </div>
       <div className='dependencies'>
         <h1>Dependencies</h1>
+        <ul>
+        {microservicesCardData.dependencyArray.map((item, index) => (
+          <li key={index}>{item}</li>
+        ))}
+      </ul>
       </div>
       <div className='configuration'>
         <h1>Configuration</h1>
