@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -14,42 +15,73 @@ code {
 }
 
  
-
-/* Dashboard  */
-.dashboard{
-  display:flex ;
-
-}
-.LeftNavbar{
-  border-right: 2px solid black;
-  width:20%;
-}
-.LeftNavbar-heading-container{
+.card {
+  cursor: pointer;
+  margin: 10px;
   text-align: center;
+ 
 }
-.LeftNavbar-heading-container h1{
-  font-weight: 900;
-}
-.LeftNavbar-username-container{
-  text-align: center;
-}
-.LeftNavbar-content-container ul{
-  list-style: none;
-  text-align: center;
-}
+/* .microserviceCard{
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 5px; 
+  height: 200px;
+  width: 400px;
+} 
+.microserviceCard-info{
+  margin-top: 100px;
 
+}
 
 .microservice-content{
   flex : 1;
 }
- 
-.microservicesCard-list{
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
- 
-  margin: 10px;
+  */
+
+/* Card container */
+.microserviceCard {
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease-in-out;
 }
+
+.microserviceCard:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Card title */
+.microserviceCard-title {
+  font-size: 24px;
+  color: #333333;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #007bff;
+  padding-bottom: 5px;
+}
+
+/* Card info */
+.microserviceCard-info {
+  margin-top: 10px;
+}
+
+.microserviceCard-info p {
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #555555;
+}
+
+.microserviceCard-info p span {
+  font-weight: bold;
+  color: #007bff;
+}
+
+/* Additional styling */
+.microserviceCard-info p:last-child {
+  margin-bottom: 0;
+}
+
 .microserviceCardComponent{
   
   padding: 10px;
@@ -58,23 +90,9 @@ code {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
  
-}
-
-.card {
-  cursor: pointer;
-  margin: 10px;
-  text-align: center;
- 
-}
-.microserviceCard{
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  border-radius: 5px; 
-  height: 200px;
-  width: 400px;
 } 
 
-
-
+ 
 /* New CSS for detailed microservice card */
 
 .detailed-card{

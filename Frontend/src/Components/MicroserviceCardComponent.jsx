@@ -14,8 +14,8 @@ export const MicroserviceCardComponent = ( props ) => {
         id = {item.id}
         title = {item.name}
         portNumber = {item.version}
-        status = {item.environment}
-        link = {item.url}
+        status = {item.status}
+        environment = {item.environment}
         className="microserviceCardComponent"
         ></Card>
       ))}

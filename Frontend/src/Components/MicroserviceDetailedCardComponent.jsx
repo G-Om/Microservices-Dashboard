@@ -6,18 +6,44 @@ import MicroserviceApi from '../api/MicroserviceApi';
 
 
 
-const data = 
+const microservicesCardData = 
   {
-    name: "Microservice 1",
+    serviceName: "Microservice 1",
     description: "100.80.111",
     version: "Active",
     environment: "xyz",
     uptime : "10.00",
     apiList : [
-          { "id": 1, "API Name": "Nirmal", "Request Type": 25, "Path Variable":"Pune", "Body": "Black book neet kar re", "Role":"Devops King" },
-          { "id": 2, "API Name": "Mayur", "Request Type": 30,"Path Variable":"Mumbai", "Body": "anime kam dekh", "Role":"All rounder" },
-          { "id": 3, "API Name": "Om", "Request Type": 35,"Path Variable":"Delhi ", "Body": "chinese ka paisa time management ke course me laga", "Role":"Backend Beast" }
-    ], 
+        {
+          "API Name": "getUser",
+          "Request Type": "GET",
+          "Path URL": "/api/users/{id}",
+          "Body": null,
+          "Role": "admin, user"
+        },
+        {
+          "API Name": "addUser",
+          "Request Type": "POST",
+          "Path URL": "/api/users",
+          "Body": null,
+          "Role": "admin"
+        },
+        {
+          "API Name": "updateUser",
+          "Request Type": "PUT",
+          "Path URL": "/api/users/{id}",
+          "Body": null,
+          "Role": "admin"
+        },
+        {
+          "API Name": "deleteUser",
+          "Request Type": "DELETE",
+          "Path URL": "/api/users/{id}",
+          "Body": null,
+          "Role": "admin"
+        }
+      ], 
+      
     dependencyArray : ["Product Management","Order Management","Cart Management","User Management"]  
   };
 
@@ -73,7 +99,7 @@ export const MicroserviceDetailedCardComponent = () => {
       </ul>
       </div>
       <div className='configuration'>
-        <h1>Configuration</h1>
+        {/* <h1>Configuration</h1> */}
       </div>
       </div>
 
