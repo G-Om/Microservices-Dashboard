@@ -1,14 +1,14 @@
 // DetailedView.js
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-// import React, { useState, useEffect } from 'react';
 import {ApiEndpoints} from './ApiEndpoints';
+import MicroserviceApi from '../api/MicroserviceApi';
 
 
 
-const microservicesCardData = 
+const data = 
   {
-    serviceName: "Microservice 1",
+    name: "Microservice 1",
     description: "100.80.111",
     version: "Active",
     environment: "xyz",
@@ -24,24 +24,20 @@ const microservicesCardData =
 export const MicroserviceDetailedCardComponent = () => {
   const id = useParams().id;
   console.log(id)
- 
-  if (microservicesCardData == null) {
-    return <div>Item not found</div>;
-  }
+  // API Endpoint Calls
+  const [data, setData] = useState([]);
 
-  // API Endpoints
-  // const [data, setData] = useState([]);
-
-  // useEffect(() => {
-  //     // Simulate fetching data
-  //     const fetchData = async () => {
-  //         const response = await fetch('/path/to/your/data.json'); // Adjust the path as needed
-  //         const result = await response.json();
-  //         setData(result.data);
-  //     };
-
-  //     fetchData();
-  // }, []);
+   useEffect(() => {
+       // Simulate fetching data
+       MicroserviceApi.getService(id).then(
+        (response)=>{
+          setData(response.data)
+          console.log(response.data)
+        }
+       ).catch((e)=>{
+        console.log(e)
+       })
+   }, []);
 
 
   return (

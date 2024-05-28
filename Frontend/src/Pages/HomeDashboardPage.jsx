@@ -2,48 +2,27 @@ import { MicroserviceCardComponent } from "../Components/MicroserviceCardCompone
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 // import { Routes ,Route } from 'react-router-dom';
 import { MicroserviceDetailedCardComponent } from "../Components/MicroserviceDetailedCardComponent";
+import { useEffect, useState } from "react";
+import MicroserviceApi from "../api/MicroserviceApi";
 
 export const HomeDashboardPage = () => {
   // array of microservices
-  const microservicesCardData = [
-    {
-      title: "Microservice 1",
-      portNumber: "100.80.111",
-      status: "Active",
-      link: "xyz",
-    
-    },
-    {
-      title: "Microservice 2",
-      portNumber: "100.80.112",
-      status: "Inactive",
-      link: "xyz",
-    },
-    {
-      title: "Microservice 3",
-      portNumber: "100.80.113",
-      status: "Active",
-      link: "xyz",
-    },
-    {
-      title: "Microservice 4",
-      portNumber: "100.80.114",
-      status: "Active",
-      link: "xyz",
-    },
-    {
-      title: "Microservice 5",
-      portNumber: "100.80.115",
-      status: "Inactive",
-      link: "xyz",
-    },
-    {
-      title: "Microservice 6",
-      portNumber: "100.80.116",
-      status: "Active",
-      link: "xyz",
-    },
-  ];
+  const [listOfMicroservices, setList] = useState([]);
+
+  useEffect(
+    ()=> {
+
+      MicroserviceApi.getAllServices().then(
+        (response)=>{
+        console.log(response.data)
+        setList(response.data)
+        }
+      ).catch((e)=>{
+        console.log(e)
+       })
+    }
+    ,[]
+  )
 
   return (
     <div className="dashboard">
@@ -71,7 +50,7 @@ export const HomeDashboardPage = () => {
           <div className="microservice-card">
            
                   <MicroserviceCardComponent
-                    data={microservicesCardData}
+                    data={listOfMicroservices}
                   ></MicroserviceCardComponent>
                
                 {/* <Route
