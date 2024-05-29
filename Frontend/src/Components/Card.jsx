@@ -13,8 +13,8 @@ export const Card = (props) => {
             <h1 className="microserviceCard-title">{props.title}</h1> 
             <div className="microserviceCard-info">
                 <p>Port : {props.portNumber}</p> 
-                <p>Link : {props.status}</p>              
-                <p>Status : {props.link}</p>              
+                <p>Environment : {props.environment}</p>              
+                <p>Status : {props.status}</p>              
             </div>       
             </div>
         </div>
