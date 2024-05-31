@@ -8,39 +8,46 @@ import MicroserviceApi from '../api/MicroserviceApi';
 
 const microservicesCardData = 
   {
-    serviceName: "Microservice 1",
-    description: "100.80.111",
-    version: "Active",
-    environment: "xyz",
+    serviceName: "User Management",
+    description: "Users managed",
+    version: "1.1.0",
+    environment: "Production",
     uptime : "10.00",
     apiList : [
         {
-          "API Name": "getUser",
+          "API Name": "Get Data",
           "Request Type": "GET",
-          "Path URL": "/api/users/{id}",
+          "Path URL": "localhost:8080/services/api/um/users",
           "Body": null,
           "Role": "admin, user"
         },
         {
-          "API Name": "addUser",
+          "API Name": "Get single user",
+          "Request Type": "GET",
+          "Path URL": "localhost:8080/services/api/um/users?userId=52",
+          "Body": null,
+          "Role": "user"
+        },
+        {
+          "API Name": "Post data",
           "Request Type": "POST",
-          "Path URL": "/api/users",
+          "Path URL": "localhost:8083/services/api/um/users",
           "Body": null,
-          "Role": "admin"
+          "Role": "user"
         },
         {
-          "API Name": "updateUser",
+          "API Name": "Update data",
           "Request Type": "PUT",
-          "Path URL": "/api/users/{id}",
+          "Path URL": "localhost:8080/services/api/um/users",
           "Body": null,
-          "Role": "admin"
+          "Role": "user"
         },
         {
-          "API Name": "deleteUser",
-          "Request Type": "DELETE",
-          "Path URL": "/api/users/{id}",
+          "API Name": "Delete data",
+          "Request Type": "PUT",
+          "Path URL": "localhost:8080/services/api/um/users",
           "Body": null,
-          "Role": "admin"
+          "Role": "user, admin"
         }
       ], 
       

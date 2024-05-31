@@ -14,7 +14,7 @@ export const HomeDashboardPage = () => {
   const microserviceArray = [
     {
       "id" : "1",
-      "name": "Auth Service",
+      "name": "User Management",
       "url": "Handles authentication and authorization",
       "version": "1.2.3",
       "environment": "Production",
@@ -22,7 +22,7 @@ export const HomeDashboardPage = () => {
     },
     {
       "id" : "2",
-      "name": "User Service",
+      "name": "Product Management",
       "url": "Manages user data and profiles",
       "version": "1.5.0",
       "environment": "Staging",
@@ -30,36 +30,36 @@ export const HomeDashboardPage = () => {
     },
     {
       "id" : "3",
-      "name": "Payment Service",
+      "name": "Cart Management",
       "url": "Processes payments and transactions",
       "version": "2.1.1",
       "environment": "Production",
       "status" : "offline",
     },
-    {
-      "id" : "4",
-      "name": "Notification Service",
-      "url": "Sends notifications to users",
-      "version": "1.0.5",
-      "environment": "Development",
-      "status" : "online",
-    },
-    {
-      "id" : "5",
-      "name": "Analytics Service",
-      "url": "Collects and processes analytics data",
-      "version": "3.0.2",
-      "environment": "Production",
-      "status" : "online",
-    },
-    {
-      "id" : "6",
-      "name": "Inventory Service",
-      "url": "Manages product inventory and stock levels",
-      "version": "1.8.7",
-      "environment": "Staging",
-      "status" : "offline",
-    }
+    // {
+    //   "id" : "4",
+    //   "name": "Product Management",
+    //   "url": "Sends notifications to users",
+    //   "version": "1.0.5",
+    //   "environment": "Development",
+    //   "status" : "online",
+    // },
+    // {
+    //   "id" : "5",
+    //   "name": "Analytics Service",
+    //   "url": "Collects and processes analytics data",
+    //   "version": "3.0.2",
+    //   "environment": "Production",
+    //   "status" : "online",
+    // },
+    // {
+    //   "id" : "6",
+    //   "name": "Inventory Service",
+    //   "url": "Manages product inventory and stock levels",
+    //   "version": "1.8.7",
+    //   "environment": "Staging",
+    //   "status" : "offline",
+    // }
   ];
 
   const [listOfMicroservices, setList] = useState(microserviceArray);
